@@ -1,19 +1,25 @@
-import sys 
-n = int(input("How many scores do you want to enter? "))
-
+import sys
+sys.stdout.write("How many scores do you want to enter? ")
+n = int(sys.stdin.readline().strip())
 scores = []
-
-# Take scores one by one
 for i in range(n):
-    value = int(input(f"Enter score {i+1}: "))
+    sys.stdout.write(f"Enter score {i+1}: ")
+    value = int(sys.stdin.readline().strip())
     scores.append(value)
 
-# Calculate values
+# Calculations
 total = sum(scores)
 average = total / len(scores)
+maximum = max(scores)
+minimum = min(scores)
 
-
-# Print results
+# Output
 print("\nScores =", scores)
 print("Sum =", total)
 print("Average =", average)
+print("Maximum =", maximum)
+print("Minimum =", minimum)
+
+
+
+
