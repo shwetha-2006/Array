@@ -1,11 +1,10 @@
 import sys
-sys.stdout.write("How many scores do you want to enter? ")
-n = int(sys.stdin.readline().strip())
-scores = []
-for i in range(n):
-    sys.stdout.write(f"Enter score {i+1}: ")
-    value = int(sys.stdin.readline().strip())
-    scores.append(value)
+# If scores provided as command-line arguments
+if len(sys.argv) > 1:
+    scores = [int(x) for x in sys.argv[1:]]
+else:
+    print("No scores provided!")
+    sys.exit(1)
 
 # Calculations
 total = sum(scores)
@@ -14,7 +13,7 @@ maximum = max(scores)
 minimum = min(scores)
 
 # Output
-print("\nScores =", scores)
+print("Scores =", scores)
 print("Sum =", total)
 print("Average =", average)
 print("Maximum =", maximum)
