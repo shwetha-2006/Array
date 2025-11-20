@@ -1,18 +1,22 @@
 import sys
-# If scores provided as command-line arguments
+# Check if user gave arguments
 if len(sys.argv) > 1:
-    scores = [int(x) for x in sys.argv[1:]]
+    scores = sys.argv[1:]
+    print("User provided scores:")
 else:
-    print("No scores provided!")
-    sys.exit(1)
+    print("No input given - using default scores:")
+    scores = ["80", "90", "75", "88"]
 
-# Calculations
+# Convert all score values to integers
+scores = [eval(x) for x in scores]
+
+# Calculate values
 total = sum(scores)
 average = total / len(scores)
 maximum = max(scores)
 minimum = min(scores)
 
-# Output
+# Print results
 print("Scores =", scores)
 print("Sum =", total)
 print("Average =", average)
